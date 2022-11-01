@@ -9,21 +9,28 @@ function juego() {
     let moneda = document.getElementById("op").value
     let aleatorio = 1 + (Math.random() * 2)
 
-    for (i = 1; i <= repetir; i++) {
+    do {
 
         if (moneda == aleatorio) {
-            let total = dinero + dinero
-            Swal.fire(`Felicitaciones has ganado, el dinero que llevas en este momento es ${total}`)
+            cont = cont + 1
+            total += dinero + dinero
+            System.out.println(`Excelente has ganado la cantidad de dinero que llevas en este momento es ${total}`)
+        } else {
+            cont = cont + 1
+            total = plata - plata
+            Swal.fire(`Lastima perdistes la cantidad de dinero que llevas en este momento es ${total}`)
+        }
+        if (total == 0) {
+            Swal.fire("Si quieres seguir jugando selecciona 1, si quieres salir selecciona 2: ")
+        } else {
+            Swal.fire("Si quieres seguir jugando selecciona 1, si quieres salir selecciona 2: ")
         }
 
-        else {
-            total = dinero - dinero
-            Swal.fire(`Lastima has perdido, el dinero que llevas en este momento es ${total}`)
-        }
+    } 
+    
+    while (continuar != 2)
 
-        Swal.fire(`El dinero que ganaste jugando fue ${total} y jugaste ${i} veces`)
-
-    }
+    Swal.fire(`El dinero que ganaste jugando fue ${total} y la cantidad de partidas que jugaste fue ${cont}`)
 
 }
 
